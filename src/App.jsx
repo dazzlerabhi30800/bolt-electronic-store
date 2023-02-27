@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import HeroSection from "./Components/HeroSection";
+import ProductSection from "./Components/ProductsSection";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <main>
         <HeroSection />
+        <ProductSection />
       </main>
     </div>
   );

@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
 
 @import "./Hero.scss";
+@import "./Product.scss";
 
 * {
   margin: 0;
@@ -84,6 +85,7 @@ header {
           color: #000;
           cursor: default;
           position: relative;
+          white-space: nowrap;
           user-select: none;
 
           &::after {
@@ -112,7 +114,7 @@ header {
     align-items: center;
     font-size: 1.2rem;
     width: auto;
-    justify-content: center;
+    padding: 8px 5px;
     gap: 2rem;
 
     .hamburger {

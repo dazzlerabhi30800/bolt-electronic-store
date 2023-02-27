@@ -6,7 +6,6 @@ const HeroSection = () => {
   const infoRef = useRef();
 
   useLayoutEffect(() => {
-    console.log(headphoneImg.current);
     gsap.fromTo(
       headphoneImg.current,
       {
