@@ -1,30 +1,22 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import data from "./ProductData";
 
 const ProductSection = () => {
   gsap.registerPlugin(ScrollTrigger);
-  const [changeAnim, setChangeAnim] = useState(false);
   const productRef = useRef();
-  useEffect(() => {
-    if (window.innerWidth >= 950) {
-      setChangeAnim(true);
-    } else {
-      setChangeAnim(false);
-    }
-  }, [changeAnim]);
   useLayoutEffect(() => {
     const products = productRef.current.querySelectorAll(".product");
-    if (changeAnim) {
+    products.forEach((item) => {
       gsap.fromTo(
-        productRef.current,
-        { opacity: 0, y: -900 },
+        item,
+        { opacity: 0, y: -500 },
         {
           opacity: 1,
           y: 0,
           scrollTrigger: {
-            trigger: productRef.current,
+            trigger: item,
             start: "0% 100%",
             end: "bottom 90%",
             // markers: true,
@@ -33,33 +25,7 @@ const ProductSection = () => {
           duration: 4,
         }
       );
-    } else {
-      products.forEach((item) => {
-        gsap.fromTo(
-          item,
-          { opacity: 0, y: -500 },
-          {
-            opacity: 1,
-            y: 0,
-            scrollTrigger: {
-              trigger: item,
-              start: "0% 100%",
-              end: "bottom 90%",
-              // markers: true,
-              scrub: true,
-            },
-            duration: 4,
-          }
-        );
-      });
-    }
-  }, [changeAnim]);
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 950) {
-      setChangeAnim(true);
-    } else {
-      setChangeAnim(true);
-    }
+    });
   });
   return (
     <div className="product--section" ref={productRef}>

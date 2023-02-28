@@ -117,7 +117,7 @@ $font-Anton-Heading: "Anton", sans-serif;
   .product--section {
     grid-template-columns: 1fr 1fr 250px 250px;
     margin: 0 auto;
-    width: 80%;
+    width: 85%;
     gap: 4rem;
     .product {
       width: 100%;
@@ -162,8 +162,9 @@ $font-Anton-Heading: "Anton", sans-serif;
         grid-column-end: 3;
         img {
           transform: rotate(0deg);
-          width: 85%;
-          height: 85%;
+          width: 75%;
+          top: 20%;
+          height: 75%;
         }
       }
       &:nth-child(6) {

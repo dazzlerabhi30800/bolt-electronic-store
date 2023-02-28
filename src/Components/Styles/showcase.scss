@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
+
+$font-OpenSans: "Open Sans", sans-serif;
+$font-Quicksand: "Quicksand", sans-serif;
+$font-Anton-Heading: "Anton", sans-serif;
+
+$showcase-height: 70vh;
+
+.showcase--section {
+  position: relative;
+  display: flex;
+  border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+
+  .showcase--carousel {
+    position: relative;
+    left: -100vw;
+    display: flex;
+    width: fit-content;
+    height: $showcase-height;
+    border-radius: 5px;
+
+    &.sliding {
+      transition: all 0.3s linear;
+    }
+
+    div {
+      display: flex;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      height: $showcase-height;
+      border-radius: 5px;
+      background: cyan;
+
+      &:nth-child(1) {
+        background: rebeccapurple;
+      }
+
+      &:nth-child(2) {
+        background: pink;
+      }
+
+      &:nth-child(3) {
+        background: blue;
+      }
+
+      &:nth-child(4) {
+        background: lightblue;
+      }
+    }
+  }
+
+  .button--wrapper {
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    background: red;
+    padding: 3rem;
+    .btn {
+      position: absolute;
+      border: 1px solid #ccc;
+      color: #fff;
+      font-size: 2rem;
+      top: 50%;
+    }
+    .left {
+      left: 2px;
+    }
+    .right {
+      right: 2px;
+    }
+  }
+}
