@@ -5,32 +5,58 @@ const Showcase = () => {
   const [allowShift, setAllowShift] = useState(true);
   const [positionX, setPositionX] = useState(0);
   const [positionInitial, setPositionInitial] = useState(0);
+  let newPosInitial = 0;
   let threshold = 100;
   const [counter, setCounter] = useState(0);
   const showcaseRef = useRef();
 
   const changeShowcaseItem = (dir, action) => {
+    showcaseRef.current.classList.add("sliding");
     let posInitial = 0;
     let slideSize = showcaseRef.current.children[0].offsetWidth;
-    showcaseRef.current.classList.add("sliding");
     if (allowShift) {
       if (!action) {
         posInitial = showcaseRef.current.offsetLeft;
-        setPositionInitial(posInitial);
-      }
-      if (dir === 1) {
-        showcaseRef.current.style.left = positionInitial - slideSize + "px";
-        setCounter((prevState) => prevState + 1);
-      } else if (dir === -1) {
-        showcaseRef.current.style.left = positionInitial + slideSize + "px";
-        setCounter((prevState) => prevState - 1);
+        newPosInitial = posInitial;
+
+        if (dir === 1) {
+          showcaseRef.current.style.left = newPosInitial - slideSize + "px";
+          setCounter((prevState) => prevState + 1);
+        } else if (dir === -1) {
+          showcaseRef.current.style.left = newPosInitial + slideSize + "px";
+          setCounter((prevState) => prevState - 1);
+        }
+      } else {
+        if (dir === 1) {
+          showcaseRef.current.style.left = positionInitial - slideSize + "px";
+          setCounter((prevState) => prevState + 1);
+        } else if (dir === -1) {
+          showcaseRef.current.style.left = positionInitial + slideSize + "px";
+          setCounter((prevState) => prevState - 1);
+        }
       }
     }
     setAllowShift(false);
   };
 
+  const checkIndex = () => {
+    showcaseRef.current.classList.remove("sliding");
+    let showSize = showcaseRef.current.children.length - 2;
+    let slideSize = showcaseRef.current.children[0].offsetWidth;
+    if (counter === -1) {
+      showcaseRef.current.style.left = -(showSize * slideSize) + "px";
+      setCounter(showSize - 1);
+    }
+    if (counter === showSize) {
+      showcaseRef.current.style.left = -(1 * slideSize) + "px";
+      setCounter(0);
+    }
+    setAllowShift(true);
+  };
+
   const dragStart = (e) => {
     let posX1 = 0;
+    e.preventDefault();
     e = e || window.event;
     let posInitial = showcaseRef.current.offsetLeft;
     setPositionInitial(posInitial);
@@ -59,6 +85,7 @@ const Showcase = () => {
     }
     showcaseRef.current.style.left =
       showcaseRef.current.offsetLeft - posX2 + "px";
+    console.log(showcaseRef.current.offsetLeft);
   };
 
   const dragEnd = () => {
@@ -66,6 +93,7 @@ const Showcase = () => {
     let posInitial = positionInitial;
     if (posFinal - posInitial < threshold) {
       changeShowcaseItem(1, "drag");
+      // console.log({ positionInitial });
     } else if (posFinal - posInitial > threshold) {
       changeShowcaseItem(-1, "drag");
     } else {
@@ -73,21 +101,6 @@ const Showcase = () => {
     }
     document.onmouseup = null;
     document.onmousedown = null;
-  };
-
-  const checkIndex = () => {
-    showcaseRef.current.classList.remove("sliding");
-    let showSize = showcaseRef.current.children.length - 2;
-    let slideSize = showcaseRef.current.children[0].offsetWidth;
-    if (counter === -1) {
-      showcaseRef.current.style.left = -(showSize * slideSize) + "px";
-      setCounter(showSize - 1);
-    }
-    if (counter === showcaseRef.current.children.length - 2) {
-      showcaseRef.current.style.left = -(1 * slideSize) + "px";
-      setCounter(0);
-    }
-    setAllowShift(true);
   };
 
   useEffect(() => {
