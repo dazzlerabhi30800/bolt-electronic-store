@@ -1,32 +1,55 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import data from "./ProductData";
 
 const ProductSection = () => {
-  gsap.registerPlugin(ScrollTrigger);
   const productRef = useRef();
+  gsap.registerPlugin(ScrollTrigger);
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [ScrollTrigger]);
   useLayoutEffect(() => {
     const products = productRef.current.querySelectorAll(".product");
     products.forEach((item) => {
       gsap.fromTo(
         item,
-        { opacity: 0, y: -500 },
+        { opacity: 0, y: -500, duration: 3 },
         {
           opacity: 1,
           y: 0,
           scrollTrigger: {
             trigger: item,
-            start: "0% 100%",
-            end: "bottom 90%",
+            start: "0% 10%",
+            end: "bottom 50%",
             // markers: true,
-            scrub: true,
+            scrub: 2,
+            toggleActions: "restart pause reverse pause",
           },
           duration: 4,
         }
       );
     });
-  });
+    // gsap.fromTo(
+    //   productRef.current,
+
+    //   { opacity: 0, y: -500 },
+    //   {
+    //     opacity: 1,
+    //     y: 0,
+    //     // duration: 3,
+    //     scrollTrigger: {
+    //       trigger: productRef.current,
+    //       start: "0% 10%",
+    //       end: "bottom 50%",
+    //       // markers: true,
+    //       scrub: 3,
+    //       toggleActions: "restart pause reverse pause",
+    //     },
+    //     // duration: 4,
+    //   }
+    // );
+  }, []);
   return (
     <div className="product--section" ref={productRef}>
       {data.map((item, i) => {

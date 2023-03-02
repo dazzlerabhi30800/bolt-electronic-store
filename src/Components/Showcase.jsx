@@ -56,7 +56,6 @@ const Showcase = () => {
 
   const dragStart = (e) => {
     let posX1 = 0;
-    e.preventDefault();
     e = e || window.event;
     let posInitial = showcaseRef.current.offsetLeft;
     setPositionInitial(posInitial);
@@ -93,7 +92,6 @@ const Showcase = () => {
     let posInitial = positionInitial;
     if (posFinal - posInitial < threshold) {
       changeShowcaseItem(1, "drag");
-      // console.log({ positionInitial });
     } else if (posFinal - posInitial > threshold) {
       changeShowcaseItem(-1, "drag");
     } else {
@@ -126,10 +124,62 @@ const Showcase = () => {
         onTouchEnd={dragEnd}
         onTouchMove={dragAction}
       >
-        <div>Carousel-1</div>
-        <div>Carousel-2</div>
-        <div>Carousel-3</div>
-        <div>Carousel-4</div>
+        <div className="showcase first">
+          <div className="showcase--container">
+            <div className="sale--img">
+              <img
+                src="./assets/headphones/girl-with-headphone.png"
+                alt="headphones for sale"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="sale--container">
+              <h4>New Skull Candy Wireless in Stock.</h4>
+            </div>
+          </div>
+        </div>
+        <div className="showcase second">
+          <div className="showcase--container">
+            <div className="sale--img">
+              <img
+                src="./assets/PC/laptop-3.png"
+                alt="headphones for sale"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="sale--container">
+              <h4>New Gaming Laptop Series with Latest 4080 RTX.</h4>
+            </div>
+          </div>
+        </div>
+        <div className="showcase third">
+          <div className="showcase--container">
+            <div className="sale--img">
+              <img
+                src="./assets/PC/cabinet-2.png"
+                alt="cabinets for sale"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="sale--container">
+              <h4>Build OR Buy your own Gaming PC Build.</h4>
+            </div>
+          </div>
+        </div>
+        <div className="showcase fourth">
+          <div className="showcase--container">
+            <div className="sale--img">
+              <img
+                src="./assets/watches/watch-2.png"
+                alt="cabinets for sale"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="sale--container">
+              <h4>New Smart Waches Launch Live Now!</h4>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="button--wrapper">
         <CaretLeft

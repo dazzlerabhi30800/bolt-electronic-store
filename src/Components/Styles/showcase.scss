@@ -12,10 +12,11 @@ $showcase-height: 70vh;
   display: flex;
   border-radius: 5px;
   width: 100%;
+  height: $showcase-height;
   overflow: hidden;
 
   .showcase--carousel {
-    position: relative;
+    position: absolute;
     left: -100vw;
     display: flex;
     width: fit-content;
@@ -26,30 +27,110 @@ $showcase-height: 70vh;
       transition: all 0.3s linear;
     }
 
-    div {
+    .showcase {
       display: flex;
       width: 100vw;
       justify-content: center;
       align-items: center;
       height: $showcase-height;
+      font-family: $font-Anton-Heading;
       border-radius: 5px;
-      background: cyan;
 
-      &:nth-child(1) {
-        background: rebeccapurple;
-      }
+      .showcase--container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        height: 90%;
 
-      &:nth-child(2) {
-        background: pink;
-      }
+        .sale--img {
+          width: 50vw;
+          height: 100%;
+          display: flex;
 
-      &:nth-child(3) {
-        background: blue;
-      }
+          img {
+            width: 100%;
+            height: inherit;
+            object-fit: contain;
+          }
+        }
+        .sale--container {
+          width: 100vw;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          height: 100%;
+          border-radius: 3px;
+          // background: red;
 
-      &:nth-child(4) {
-        background: lightblue;
+          h4 {
+            font-size: calc(6vw + 10px);
+            color: #d6d5d5;
+            // user-select: none;
+            width: 13ch;
+            margin: 0 auto;
+          }
+        }
       }
+    }
+
+    .first {
+      background: pink;
+      color: #fff;
+      background-position: center;
+      background-size: cover;
+      .showcase--container {
+        .sale--container {
+          h4 {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .second {
+      background-color: #f82b7f;
+      .showcase--container {
+        .sale--container {
+          h4 {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .third {
+      background: rgb(110, 106, 110);
+      background: radial-gradient(
+        circle,
+        rgba(110, 106, 110, 1) 0%,
+        rgba(63, 63, 66, 1) 50%,
+        rgba(29, 29, 31, 1) 100%
+      );
+      .showcase--container {
+        .sale--container {
+          h4 {
+            color: #dddbdb;
+          }
+        }
+      }
+    }
+
+    .fourth {
+      // background: rgb(217, 245, 187);
+      // background: radial-gradient(
+      //   circle,
+      //   rgba(217, 245, 187, 1) 0%,
+      //   rgba(202, 241, 171, 1) 50%,
+      //   rgba(173, 241, 149, 1) 100%
+      // );
+      background-image: linear-gradient(
+        to right,
+        #f78ca0 0%,
+        #f9748f 19%,
+        #fd868c 60%,
+        #fe9a8b 100%
+      );
     }
   }
 
@@ -57,12 +138,11 @@ $showcase-height: 70vh;
     display: flex;
     gap: 3rem;
     width: 100%;
-    background: red;
     padding: 3rem;
     .btn {
       position: absolute;
-      border: 1px solid #ccc;
-      color: #fff;
+      border: 2px solid #000;
+      color: #000;
       font-size: 2rem;
       top: 50%;
     }
@@ -71,6 +151,52 @@ $showcase-height: 70vh;
     }
     .right {
       right: 2px;
+    }
+  }
+}
+
+@media Screen and (min-width: 950px) {
+  .showcase--section {
+    .showcase--carousel {
+      .showcase {
+        justify-content: center;
+        .showcase--container {
+          flex-direction: row;
+          border-radius: 5px;
+          width: 95%;
+          height: 90%;
+
+          .sale--container {
+            align-items: center;
+            width: 45%;
+            border-radius: 0px;
+            h4 {
+              text-align: left;
+              color: #0f0f0f;
+              width: 15ch;
+              font-size: 5.5rem;
+            }
+          }
+        }
+      }
+      .second {
+        .showcase--container {
+          .sale--container {
+            h4 {
+              color: #f3f3f3;
+            }
+          }
+        }
+      }
+      .third {
+        .showcase--container {
+          .sale--container {
+            h4 {
+              color: #dddbdb;
+            }
+          }
+        }
+      }
     }
   }
 }
