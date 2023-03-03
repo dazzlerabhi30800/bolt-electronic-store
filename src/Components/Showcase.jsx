@@ -41,6 +41,9 @@ const Showcase = () => {
 
   const checkIndex = () => {
     showcaseRef.current.classList.remove("sliding");
+    const animContainer = document.querySelectorAll(".showcase--container");
+    animContainer.forEach((anim) => anim.classList.remove("slide"));
+    animContainer[counter + 1].classList.add("slide");
     let showSize = showcaseRef.current.children.length - 2;
     let slideSize = showcaseRef.current.children[0].offsetWidth;
     if (counter === -1) {
@@ -112,6 +115,9 @@ const Showcase = () => {
     let cloneLast = lastSlide.cloneNode(true);
     showcase.appendChild(cloneFirst);
     showcase.insertBefore(cloneLast, firstSlide);
+    const animContainer = document.querySelectorAll(".showcase--container");
+    animContainer.forEach((anim) => anim.classList.remove("slide"));
+    animContainer[counter + 1].classList.add("slide");
   };
 
   return (

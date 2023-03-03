@@ -30,25 +30,6 @@ const ProductSection = () => {
         }
       );
     });
-    // gsap.fromTo(
-    //   productRef.current,
-
-    //   { opacity: 0, y: -500 },
-    //   {
-    //     opacity: 1,
-    //     y: 0,
-    //     // duration: 3,
-    //     scrollTrigger: {
-    //       trigger: productRef.current,
-    //       start: "0% 10%",
-    //       end: "bottom 50%",
-    //       // markers: true,
-    //       scrub: 3,
-    //       toggleActions: "restart pause reverse pause",
-    //     },
-    //     // duration: 4,
-    //   }
-    // );
   }, []);
   return (
     <div className="product--section" ref={productRef}>

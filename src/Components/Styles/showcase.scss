@@ -24,7 +24,7 @@ $showcase-height: 70vh;
     border-radius: 5px;
 
     &.sliding {
-      transition: all 0.3s linear;
+      transition: all 0.5s ease;
     }
 
     .showcase {
@@ -43,10 +43,23 @@ $showcase-height: 70vh;
         width: 90%;
         height: 90%;
 
+        &.slide .sale--img {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+
+        &.slide .sale--container {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+
         .sale--img {
           width: 50vw;
           height: 100%;
           display: flex;
+          transform: translateX(-500px);
+          opacity: 0;
+          transition: all 0.3s linear;
 
           img {
             width: 100%;
@@ -61,6 +74,9 @@ $showcase-height: 70vh;
           text-align: center;
           height: 100%;
           border-radius: 3px;
+          transform: translateX(500px);
+          opacity: 0;
+          transition: all 0.3s linear;
           // background: red;
 
           h4 {
@@ -117,13 +133,6 @@ $showcase-height: 70vh;
     }
 
     .fourth {
-      // background: rgb(217, 245, 187);
-      // background: radial-gradient(
-      //   circle,
-      //   rgba(217, 245, 187, 1) 0%,
-      //   rgba(202, 241, 171, 1) 50%,
-      //   rgba(173, 241, 149, 1) 100%
-      // );
       background-image: linear-gradient(
         to right,
         #f78ca0 0%,
