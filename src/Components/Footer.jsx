@@ -27,6 +27,7 @@ const Footer = () => {
         <Linkedin className="social--icon" />
         <Facebook className="social--icon" />
       </div>
+      <address>House No - 455, Alacrity Street, New Delhi</address>
       <span> &copy; Bolt 2023. All rights reserved </span>
     </footer>
   );

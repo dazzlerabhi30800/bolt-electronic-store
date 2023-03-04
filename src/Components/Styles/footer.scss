@@ -5,16 +5,10 @@ $font-OpenSans: "Open Sans", sans-serif;
 $font-Quicksand: "Quicksand", sans-serif;
 
 footer {
+  margin-top: 3rem;
   display: flex;
-  background: rgb(141, 148, 245);
-  background: radial-gradient(
-    circle,
-    rgba(141, 148, 245, 1) 0%,
-    rgba(115, 125, 252, 1) 50%,
-    rgba(108, 97, 254, 1) 100%,
-    rgba(245, 159, 49, 1) 100%
-  );
   padding: 2rem;
+  box-shadow: 1px 1px 10px 3px rgba(0, 0, 0, 0.2);
   flex-direction: column;
   gap: 3rem;
   align-items: center;
