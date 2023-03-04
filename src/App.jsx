@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import HeroSection from "./Components/HeroSection";
 import ProductSection from "./Components/ProductsSection";
 import Showcase from "./Components/Showcase";
 
 function App() {
-  const [show, setShow] = useState(false);
-  console.log(show);
-  const handleShow = () => {
-    setShow(!show);
-  };
   return (
     <div className="App">
       <Header />
@@ -19,6 +15,7 @@ function App() {
         <ProductSection />
         <Showcase />
       </main>
+      <Footer />
     </div>
   );
 }
