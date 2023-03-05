@@ -12,13 +12,13 @@ const Footer = () => {
           <a href="#">Home</a>
         </li>
         <li>
-          <a href="">Shop</a>
+          <a href="#">Shop</a>
         </li>
         <li>
-          <a href="">Contact-Us</a>
+          <a href="#">Contact-Us</a>
         </li>
         <li>
-          <a href="">About</a>
+          <a href="#">About</a>
         </li>
       </ul>
       <div className="social--wrapper">

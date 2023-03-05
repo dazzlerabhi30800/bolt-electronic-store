@@ -22,9 +22,8 @@ const ProductSection = () => {
             trigger: item,
             start: "0% 10%",
             end: "bottom 50%",
-            // markers: true,
             scrub: 2,
-            toggleActions: "restart pause reverse pause",
+            // toggleActions: "restart pause reverse pause",
           },
           duration: 4,
         }

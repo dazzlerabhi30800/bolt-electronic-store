@@ -5,7 +5,7 @@ $font-OpenSans: "Open Sans", sans-serif;
 $font-Quicksand: "Quicksand", sans-serif;
 $font-Anton-Heading: "Anton", sans-serif;
 
-$showcase-height: 70vh;
+$showcase-height: 100vh;
 
 .showcase--section {
   position: relative;
@@ -124,6 +124,10 @@ $showcase-height: 70vh;
         rgba(29, 29, 31, 1) 100%
       );
       .showcase--container {
+        .sale--img {
+          width: 40%;
+          height: 90%;
+        }
         .sale--container {
           h4 {
             color: #dddbdb;
@@ -166,9 +170,13 @@ $showcase-height: 70vh;
 
 @media Screen and (min-width: 950px) {
   .showcase--section {
+    $showcase-height: 90vh;
+    height: $showcase-height;
     .showcase--carousel {
+      height: $showcase-height;
       .showcase {
         justify-content: center;
+        height: $showcase-height;
         .showcase--container {
           flex-direction: row;
           border-radius: 5px;
